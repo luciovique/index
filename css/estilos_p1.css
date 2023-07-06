@@ -157,6 +157,7 @@ p {
 
 a {
     color: white;
+    border-style:none;
     text-decoration: none;
 }
 
