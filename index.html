@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Artificial Intelligence</title>
+    <link rel="icon" href="img/logo_pestana.png">
+    <link rel="stylesheet" href="css/estilos_p1.css">
+    <link rel="stylesheet" href="css/media_p1.css">
+    <meta charset="utf-8">
+    <meta name="author" content="Claudia Coppola">
+    <meta name="description" content="Estructura HTML5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Script de efecto para desplegar opciones -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        //////////////////// Desplegar opciones cuando nos posicionamos sobre el menú de barras //////////////////////
+        $(document).ready(function () {
+            $(".op-barras").click(function () {
+                $(".menu-adaptable").slideToggle("slow");
+            });
+        });
+        ////////////////////////////// Ocultar menú cuando hacemos clic en las opciones ////////////////////////////////
+        $(document).ready(function () {
+            $(".op-menu-oculto").click(function () {
+                $(".menu-adaptable").slideToggle("slow");
+            });
+        });
+    </script>
+    <!-- Script para efecto scroll al seleccionar una opción del menú -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"
+        charset="utf-8"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="div-nav-1">
+            <img src="img/logo_ai.png" width="60" height="50" class="logo">
+        </div>
+        <div class="div-nav-2">
+            <ul>
+                <li class="op-menu"><a id="clic1" href="#home">Home</a></li>
+                <li class="op-menu"><a href="#about">About</a></li>
+                <li class="op-menu"><a href="#career">Career</a></li>
+                <li class="op-menu"><a href="#contact">Contact</a></li>
+                <li class="op-menu"><a href="#login" class="login">Login</a></li>
+                <li class="op-barras"><a href="#barras">☰</a></li>
+            </ul>
+        </div>
+        <div class="menu-adaptable">
+            <ul class="menu-oculto">
+                <li class="menu-hover"><a class="op-menu-oculto" href="#home">Home</a></li>
+                <li class="menu-hover"><a class="op-menu-oculto" href="#about">About</a></li>
+                <li class="menu-hover"><a class="op-menu-oculto" href="#career">Career</a></li>
+                <li class="menu-hover"><a class="op-menu-oculto" href="#contact">Contact</a></li>
+                <li class="menu-hover"><a class="op-menu-oculto" href="#login" class="login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header id="home">
+        <article class="izq-header" id="subir">
+            <div class="texto">
+                <h1>What is Artificial<br>Intelligence?</h1>
+                <br>
+                <p>
+                    Artificial Intelligence is the combination of algorithms proposed with the multi purpose of creating
+                    machines that have a big capabilities like humans are.
+                    A technology that is very still distant and mysterious to us in the present time, but that for a few
+                    years has been present in our daily lives at all hours.
+                </p>
+            </div>
+            <div class="enlaces">
+                <div class="boton">Get Started</div>
+                <div class="boton">View Demo</div>
+            </div>
+        </article>
+        <article class="der-header">
+            <img src="img/robot2.png" width="150" height="200" alt="imagen" class="robot">
+            <img src="img/base_robot.png" width="300" height="200" alt="imagen">
+            <div style="display:flex; flex-direction:row">
+                <div class="bot-inf"><a href="#subir"><img src="img/link1.png" width="40" height="40"></a></div>
+                <div class="bot-inf"><img src="img/link2.png" width="40" height="40"></div>
+                <div class="bot-inf"><img src="img/link3.png" width="40" height="40"></div>
+            </div>
+        </article>
+    </header>
+
+    <section id="career"></section>
+    <section id="contact"></section>   
+    <section id="login"></section>
+    <section id="about"></section>
+
+    <script>
+        /////////////////////////// Parte del efecto scroll /////////////////////////////////////
+        $(function () {
+            $('a[href*=#]').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                    && location.hostname == this.hostname) {
+                    var $target = $(this.hash);
+                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                    if ($target.length) {
+                        var targetOffset = $target.offset().top;
+                        $('html,body').animate({ scrollTop: targetOffset }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+
+        //////////////// Reproducir sonido al hacer clic en los botones ///////////////////////
+
+        // Obtener todos los elementos con la clase "boton"
+        var buttons = document.getElementsByClassName('boton');
+        // Crear un audio y cargar el archivo de sonido mp3
+        var audio = new Audio('sonido/clic.mp3');
+        // Recorrer todas las clases denominadas "boton" y agregarles el evento clic
+        for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function () {
+        // Reproducir el sonido cuando se hace clic en el botón
+        audio.play();
+        });
+        }
+
+    </script>
+</body>
+
+</html>
